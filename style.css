@@ -166,83 +166,69 @@ p {
 }
 
 /* Navigation */
+/* Navbar basic styling */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: all 0.3s ease;
+  background-color: #333;
+  padding: 10px;
+  font-family: Arial, sans-serif;
 }
 
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
+/* Container for dropdown */
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
+  position: relative;
 }
 
-.nav-logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2d3748;
-    text-decoration: none;
-    background: linear-gradient(135deg, #3B82F6, #14B8A6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Dropdown wrapper */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 2rem;
+/* Dropdown button style */
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.nav-link {
-    color: #4a5568;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
+/* Dropdown menu, hidden by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  margin-top: 5px;
+  z-index: 1;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #3B82F6, #14B8A6);
-    transition: width 0.3s ease;
+/* Links inside dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
+/* Hover effect on dropdown links */
+.dropdown-content a:hover {
+  background-color: #ddd;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: #3B82F6;
+/* Show dropdown menu when hovering over dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 0.5rem;
+/* Change dropdown button background on hover */
+.dropdown:hover .dropbtn {
+  background-color: #555;
 }
+
+
+
 
 .bar {
     width: 25px;
@@ -253,17 +239,7 @@ p {
     border-radius: 2px;
 }
 
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
 
 /* main Section */
 .main {
@@ -451,43 +427,42 @@ p {
 }
 
 .skill-category {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-top: 4px solid #3B82F6;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
 }
 
 .skill-category h3 {
-    color: #2d3748;
-    margin-bottom: 2rem;
-    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+}
+.skill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #1f2937;
+    padding: 1.5rem;
 }
 
+
 .skill-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: #f1f5f9;
+    border-radius: 10px;
 }
 
 .skill-info {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #0f172a;
 }
 
-.skill-bar {
-    height: 8px;
-    background: #e2e8f0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-
-.skill-progress {
-    background-color: #4CAF50;
-   border-radius: 5px;
-    transition: width 1s ease-in-out;
-}
 
 
 /* Projects Section */
@@ -862,9 +837,7 @@ p {
         padding: 0 1rem;
     }
     
-    .hamburger {
-        display: flex;
-    }
+   
     
     .nav-menu {
         position: fixed;
@@ -881,6 +854,7 @@ p {
     }
     
     .nav-menu.active {
+        display: flex;
         left: 0;
     }
     
@@ -1038,8 +1012,7 @@ p {
     .navbar,
     .scroll-indicator,
     .btn,
-    .modal,
-    .hamburger {
+    .modal {
         display: none !important;
     }
     
@@ -1114,6 +1087,7 @@ footer {
     background: #333;
     color: #fff;
 }
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
