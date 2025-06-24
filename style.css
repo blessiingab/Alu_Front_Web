@@ -1114,7 +1114,6 @@ footer {
     background: #333;
     color: #fff;
 }
-
 @media (max-width: 768px) {
     .nav-links {
         display: none;
